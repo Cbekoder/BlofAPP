@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bloglar</title>
+</head>
+<body>
+<a href="/">Home</a>
+<h1>Barcha maqolalar</h1>
+<ul>
+    {% for maqola in maqolalar %}
+    <li><a href="/maqola/{{ maqola.id }}">{{ maqola.sarlavha }}</a></li>
+    {% endfor %}
+</ul>
+</body>
+</html>

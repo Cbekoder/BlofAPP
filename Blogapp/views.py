@@ -58,7 +58,7 @@ class HomeView(View):
     def get(self, request):
         content = {
             'user' : request.user,
-            'maqolalar' : Maqola.objects.filter(muallif = Muallif.objects.get(userid = request.user))
+            'maqolalar' : Maqola.objects.filter(muallif = Muallif.objects.get(userid = request.user))[:5]
         }
         return render(request, 'index.html', content)
 
@@ -85,7 +85,12 @@ class addarticleView(View):
             return redirect("/")
         return redirect('/login/')
 
-
+class BlogView(View):
+    def get(self, request):
+        content = {
+            "maqolalar" : Maqola.objects.filter(muallif = Muallif.objects.get(userid = request.user))
+        }
+        return render(request, 'blog.html', content)
 def logout_view(request):
     logout(request)
     return redirect("/login")
