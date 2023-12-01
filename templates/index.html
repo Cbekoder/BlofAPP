@@ -12,16 +12,19 @@
     <hr>
     <h2>Maqolalar:</h2><a href="/newArticle/">Yangi maqola</a>
     <ul>
-        {% for article in user.muallif_set.all %}
-        <li>{{ article.title }}</li>
+        {% for article in maqolalar %}
+        <li><a href="/maqola/{{ article.id }}">{{ article.sarlavha }}</a></li>
         {% endfor %}
     </ul>
     <hr>
 
     <a href="/logout">Logout</a>
     {% else %}
+    <hr>
     <a href="/login/">Login</a>
+    <br>
     <a href="/register/">Register</a>
+    <hr>
     {% endif %}
 
 </body>

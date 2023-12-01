@@ -57,9 +57,17 @@ class LoginView(View):
 class HomeView(View):
     def get(self, request):
         content = {
-            'user' : request.user
+            'user' : request.user,
+            'maqolalar' : Maqola.objects.filter(muallif = Muallif.objects.get(userid = request.user))
         }
-        return render(request, 'index.html')
+        return render(request, 'index.html', content)
+
+class MaqolaView(View):
+    def get(self, request, pk):
+        content = {
+            'maqola' : Maqola.objects.get(id=pk)
+        }
+        return render(request, 'article.html', content)
 
 class addarticleView(View):
     def get(self, request):
@@ -72,7 +80,7 @@ class addarticleView(View):
                 sana = request.POST.get('sana'),
                 mavzu = request.POST.get('mavzu'),
                 matn = request.POST.get('matn'),
-                muallif = request.user
+                muallif = Muallif.objects.get(userid = request.user)
             )
             return redirect("/")
         return redirect('/login/')
