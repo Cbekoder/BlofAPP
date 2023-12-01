@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Maqola qo'shish</title>
+</head>
+<body>
+
+<h2>Maqola yaratish</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="sarlavha">Sarlavha:</label>
+    <input type="text" id="sarlavha" name="sarlavha" required maxlength="50"><br>
+    <label for="sana">Sana:</label>
+    <input type="date" id="sana" name="sana" required><br>
+    <label for="mavzu">Mavzu:</label>
+    <input type="text" id="mavzu" name="mavzu" required maxlength="40"><br>
+    <label for="matn">Matn:</label>
+    <textarea id="matn" name="matn" required></textarea><br>
+    <button type="submit">Qo'shish</button>
+</form>
+
+</body>
+</html>

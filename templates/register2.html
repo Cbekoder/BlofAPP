@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Muallif</title>
+</head>
+<body>
+
+<h2>Add Muallif</h2>
+
+<form method="post"> {% csrf_token %}
+    <label for="ism">Ism:</label>
+    <input type="text" id="ism" name="ism" required maxlength="30"><br>
+    <label for="yosh">Yosh:</label>
+    <input type="number" id="yosh" name="yosh" required min="1" max="150"><br>
+    <label for="kasb">Kasb:</label>
+    <input type="text" id="kasb" name="kasb" required maxlength="20"><br>
+    <button type="submit">Add Muallif</button>
+</form>
+
+</body>
+</html>
